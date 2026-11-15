@@ -1,0 +1,3 @@
+[server]
+# The client acts with your Azure CLI sign-in, so only accept connections from this machine.
+address = "127.0.0.1"
