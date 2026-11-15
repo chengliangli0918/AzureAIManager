@@ -1,4 +1,4 @@
-"""Streamlit client for the AIManager namespace-scoped RBAC demo.
+"""Streamlit client for the AIManager namespace-scoped Inference RBAC demo.
 
 The signed-in Entra user calls the OpenAI-compatible inference endpoints of two AIManager namespaces with
 the same bearer token. "Azure AIManager Inference User" on ns1 lets the ns1/md1 call through; with no
@@ -24,7 +24,7 @@ CONFIG_PATH = Path(os.environ.get("DEMO_CONFIG", Path(__file__).resolve().parent
 DEFAULT_PROMPT = "What is Kubernetes? Answer in one sentence."
 HISTORY_LIMIT = 50
 
-st.set_page_config(page_title="AIManager namespace RBAC demo", page_icon="🔐", layout="wide")
+st.set_page_config(page_title="AIManager namespace-scoped Inference RBAC", page_icon="🔐", layout="wide")
 
 
 def load_state() -> None:
@@ -283,7 +283,7 @@ with st.sidebar:
         help="Reasoning models such as gemma-4 think before they answer; too low a limit cuts the answer off.",
     )
 
-st.title("🔐 AIManager namespace-scoped RBAC")
+st.title("🔐 AIManager namespace-scoped Inference RBAC")
 demo_user_label = f"`{config.demo_user}`" if config.demo_user else "the signed-in account"
 st.markdown(
     f"One Entra identity, one token, two namespaces. **{aim.INFERENCE_ROLE}** is assigned to "

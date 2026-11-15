@@ -1,4 +1,4 @@
-# AIManager namespace-scoped RBAC demo
+# AIManager namespace-scoped Inference RBAC demo
 
 Shows that Azure RBAC on an AIManager **namespace** controls who can call its inference endpoint: the
 account you signed in with (`az login`) holds **Azure AIManager Inference User** on `ns1` only, so the same
