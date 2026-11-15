@@ -129,7 +129,3 @@ Tests: `.venv/bin/pip install pytest && .venv/bin/python -m pytest client/tests`
   (audience `https://management.core.windows.net/`).
 - **Namespace API keys** from `az aimanager namespace list-accesskeys` authenticate without Entra RBAC; this demo
   uses only Entra tokens.
-- **`az extension show` reports `aimanager` 2.0.0b3** even after upgrading to 2.0.1b4: the package's metadata
-  lags behind. `setup.sh` checks for `az aimanager namespace modeldeployment create` instead.
-- **Region.** This demo uses `italynorth`, where the subscription has the AIManager model catalog and
-  `NDAMSv4_A100` quota. Set `LOCATION` to use another region.
