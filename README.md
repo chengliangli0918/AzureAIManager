@@ -18,10 +18,6 @@ AIManager charlili-aim (italynorth, resource group charlilirg)
 
 Both model deployments serve `google/gemma-4-E4B-it` on `Standard_ND96amsr_A100_v4`.
 
-> [!WARNING]
-> Each `Standard_ND96amsr_A100_v4` replica costs about **$41/hour** in Italy North
-> (`az aimanager model calculate-cost`), so the demo runs at about **$82/hour**. Run `scripts/cleanup.sh` when done.
-
 ## Prerequisites
 
 - Azure CLI, jq and curl, signed in with `az login` as the account that should get access (a user or a
