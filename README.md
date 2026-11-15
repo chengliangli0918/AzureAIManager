@@ -4,6 +4,12 @@ Shows that Azure RBAC on an AIManager **namespace** controls who can call its in
 account you signed in with (`az login`) holds **Azure AIManager Inference User** on `ns1` only, so the same
 Entra token gets an answer from `ns1/md1` and is refused with **403** (401 for an invalid token) by `ns2/md2`.
 
+> [!IMPORTANT]
+> **Customer impact:** several teams in one organization can **share a single AIManager**, while each team can
+> run inference only on the model deployments in the namespaces where it holds **Azure AIManager Inference
+> User**. Access is granted and revoked with ordinary Azure role assignments on the namespace (to users, groups
+> or service principals) instead of handing out namespace API keys.
+
 ```text
 AIManager charlili-aim (italynorth, resource group charlilirg)
 ├── namespace ns1 ── model deployment md1   your az login account: Azure AIManager Inference User
