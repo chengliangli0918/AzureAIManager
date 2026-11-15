@@ -10,9 +10,7 @@ AIManager charlili-aim (italynorth, resource group charlilirg)
 └── namespace ns2 ── model deployment md2   your az login account: no inference role
 ```
 
-Both model deployments serve `google/gemma-4-E4B-it` on `Standard_ND96amsr_A100_v4`. The steps follow the
-[AIManager Partner Team Preview Testing Guide](https://msazure.visualstudio.com/CloudNativeCompute/_wiki/wikis/CloudNativeCompute.wiki/1134231/External-AIManager-Partner-Team-Preview-Testing-Guide)
-(Azure RBAC inference: section 6, option 2).
+Both model deployments serve `google/gemma-4-E4B-it` on `Standard_ND96amsr_A100_v4`.
 
 > [!WARNING]
 > Each `Standard_ND96amsr_A100_v4` replica costs about **$41/hour** in Italy North
@@ -23,7 +21,7 @@ Both model deployments serve `google/gemma-4-E4B-it` on `Standard_ND96amsr_A100_
 - Azure CLI, jq and curl, signed in with `az login` as the account that should get access (a user or a
   service principal).
 - Owner or User Access Administrator on the subscription you run it in (to create role assignments).
-- Feature `Microsoft.ContainerService/AIManagerPreview` registered (it needs manual approval; see the guide).
+- Feature `Microsoft.ContainerService/AIManagerPreview` registered (it needs manual approval).
 - Python 3.10+ for the Streamlit client.
 
 `setup.sh` installs or upgrades the `aimanager` CLI extension when needed.
@@ -133,5 +131,5 @@ Tests: `.venv/bin/pip install pytest && .venv/bin/python -m pytest client/tests`
   uses only Entra tokens.
 - **`az extension show` reports `aimanager` 2.0.0b3** even after upgrading to 2.0.1b4: the package's metadata
   lags behind. `setup.sh` checks for `az aimanager namespace modeldeployment create` instead.
-- **Region.** The guide uses `eastus2euap`. This demo uses `italynorth`, where the subscription has the
-  AIManager model catalog and `NDAMSv4_A100` quota. If AIManager creation fails there, set `LOCATION`.
+- **Region.** This demo uses `italynorth`, where the subscription has the AIManager model catalog and
+  `NDAMSv4_A100` quota. Set `LOCATION` to use another region.
